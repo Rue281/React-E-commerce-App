@@ -1,0 +1,39 @@
+.overlayContainer.first{
+  /* background: url('../../assets/mainSliderBanner-1.jpg'); */
+  height: 80vh;
+  background-position: center;
+  background-size: cover;
+}
+.overlayContainer.second{
+  /* background: url('../../assets/mainSliderBanner-2.jpg'); */
+  height: 80vh;
+  background-position: center;
+  background-size: cover;
+}
+.owl-stage-outer{
+    height: inherit;
+}
+.owl-overlay {
+    position: absolute;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff;
+    padding-bottom: 20px;
+    font-family: "Open Sans", sans-serif;
+  }
+  .text{
+    position: relative;
+    top: 10%;
+    width: 45%;
+  }
+  
+  h2.owl-title {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }

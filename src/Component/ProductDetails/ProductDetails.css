@@ -1,0 +1,7 @@
+.loading{
+    background: var(--light-BgColor);
+    color: var(--bg-color);
+}
+.text-category{
+    color: var(--light-BgColor);
+}

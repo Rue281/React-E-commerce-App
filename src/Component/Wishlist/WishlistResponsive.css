@@ -1,0 +1,12 @@
+/*for tablet*/
+@media only screen and (max-width: 769px){
+    .table{
+        width: 100%;
+    }
+}
+/*for mobile phone*/
+@media only screen and (max-width: 375px){
+    .table{
+        width: 100%;
+    }
+}

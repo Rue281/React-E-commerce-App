@@ -1,13 +1,55 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
+:root{
+  --bg-color: #fff;
+  --light-BgColor: #20AD96;
+  /* --bgTransparent: rgba(36,186,239,.6); */
+  --font-color: #333461;
+  --borderColor: #a8a8a83d;
+  --borderHeight: 1px;
+  --secondFontColor: #949cb0;
+}
+body{
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  font-family: 'Kumbh Sans', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a,span.nav-link{
+  color: var(--font-color) !important;
+}
+.product{
+  overflow: hidden;
+}
+.product a{
+  text-decoration: none !important;
+}
+
+.product .btn{
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.5s;
+}
+.product:hover .btn{
+  opacity: 1;
+  transform: translateY(0);
+}
+.loading{
+  z-index: 111;
+}
+.cursor{
+  cursor:pointer;
+}
+
+.offcanvas{
+  color: var(--bg-color);
+}
+.border-dash{
+  border-bottom: 2px dashed #f1f1f1;
+}
+.btn,.btn:hover,.btn:disabled{
+  background: var(--light-BgColor);
+  color: var(--bg-color);
+}
+input{
+  color: var(--font-color);
 }

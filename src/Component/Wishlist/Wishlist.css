@@ -1,0 +1,21 @@
+.wishlist.row{
+    /* background: url(../../assets/trial.jpeg); */
+    background: #e2f2df;
+    /* height: 100vh; */
+}
+.emptyCart{
+    max-height: 50vh;
+}
+.table-container{
+    background:  var(--bg-color);
+}
+.table{
+    width: 70%;
+}
+.table td h3{
+    color: var(--font-color);
+}
+.title, .brand, .category{
+    font-weight: 600;
+    /* display: inline-block; */
+}

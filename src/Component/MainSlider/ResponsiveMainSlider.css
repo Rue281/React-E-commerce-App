@@ -1,0 +1,32 @@
+/*for tablet*/
+@media only screen and (max-width: 769px){
+    /* .owl-theme{
+        height: 15em;
+    } */
+    .text{
+        width: 100%;
+    }
+    h2.owl-title{
+        font-size:1.5em;
+    }
+    .text h3{
+        font-size: 1em;
+    }
+}
+
+/*for mobile phone*/
+@media only screen and (max-width: 375px){
+    /* .owl-theme{
+        height: 15em;
+    } */
+    .text{
+        width: 100%;
+    }
+    h2.owl-title{
+        font-size:1.5em;
+    }
+    .text h3{
+        font-size: 1em;
+    }
+}
+

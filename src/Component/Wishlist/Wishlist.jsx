@@ -11,11 +11,11 @@ export default function Wishlist() {
     //to recieve id from url
   // let {id} = useParams();
   // console.log(id);
-  let {getUserWishlist,favouriteList,parsedData,removeProductFromWishlist} = useContext(WishlistContext);
+  let {getUserWishlist,favouriteProductsList,parsedData,removeProductFromWishlist} = useContext(WishlistContext);
   useEffect(()=>{
     getUserWishlist();
-    console.log(favouriteList)
-  },[favouriteList]);
+    console.log(favouriteProductsList)
+  },[favouriteProductsList]);
 
 
   
@@ -23,7 +23,7 @@ export default function Wishlist() {
   return (
     // <div className="container-fluid d-flex vh-100">
     <div className='wishlist row justify-content-center'>
-      {favouriteList?.length>0 ? 
+      {favouriteProductsList?.length>0 ? 
 
       <div className="col-12 table-container d-flex flex-column justify-content-center ">
         <h1 className='ms-5'>Wishlist</h1>
@@ -37,7 +37,7 @@ export default function Wishlist() {
             </tr>
           </thead> */}
           <tbody>
-            {favouriteList.map((el,i)=>{
+            {favouriteProductsList.map((el,i)=>{
               return <tr key={i}>
               <td>
                 <i className='fa-solid fa-xmark fa-xl text-danger cursor' onClick={(e)=>{removeProductFromWishlist(e.target,el.id)}}></i>

@@ -7,10 +7,12 @@ export let WishlistContext = createContext(null);
 export function WishlistContextProvider(props){
 
 
+    //for ids
     let [favouriteList, setFavouriteList] = useState([]);
     let [isFavourite, setIsFavourite] = useState(false);
-    const [selectedIndex, setSelectedIndex] = useState(0);
-    let [parsedData, setParsedData] = useState([])
+    let [parsedData, setParsedData] = useState([]);
+    let [favouriteProductsList, setfavouriteProductsList] = useState([]);
+
 
 
     let baseUrl = "https://ecommerce.routemisr.com";
@@ -20,24 +22,35 @@ export function WishlistContextProvider(props){
     },[]);
 
     useEffect(() => {
-        //localStorage.setItem('myfavouriteList', JSON.stringify(favouriteList))
+        
       }, [favouriteList,parsedData])
 
-    function getInitialState() {
-        const favouriteList = localStorage.getItem('myfavouriteList')
-        //console.log(Array.isArray(favouriteList));
-        console.log(typeof(favouriteList));
-        return favouriteList ? JSON.parse(favouriteList) : []
-      }
-
-    
 
     //get logged-user wishlist
     async function getUserWishlist(){
         let {data} = await axios.get(`${baseUrl}/api/v1/wishlist`,{headers:{token:localStorage.getItem("token")}});
         //console.log(data.data);
 
-        //data.data?.map(el=>{console.log(el._id)});
+        let favouriteIdsArr = [];
+
+
+        data.data?.map((el)=>{
+            //console.log(el._id);
+            favouriteIdsArr.push(el._id);
+            //setFavouriteList(el._id);
+        });
+        //console.log(favouriteIdsArr);
+        setFavouriteList(favouriteIdsArr);
+
+        setfavouriteProductsList(data.data);
+
+
+
+        // setFavouriteList(data =>
+        //     data.data.map(item => ({
+        //       ...item._id
+        //     }))
+        //   );
 
         
         
@@ -47,9 +60,13 @@ export function WishlistContextProvider(props){
         //console.log(data.data);
         //console.log(savedfavorite);
         //setFavouriteList(savedfavorite);
-        setFavouriteList(data.data);
+
+
+        // setFavouriteList(data.data);
         localStorage.setItem("myfavouriteList",JSON.stringify(favouriteList));
         setParsedData(JSON.parse(localStorage.getItem("myfavouriteList")));
+
+
         //let savedfavorite= JSON.parse(localStorage.getItem("myfavouriteList"));
         //console.log(Array.isArray(parsedData));
         // console.log(Array.isArray(favouriteList));
@@ -73,13 +90,18 @@ export function WishlistContextProvider(props){
                 console.log(`id is: ${id}`);
                 console.log(data.data);
 
+
+                //setFavouriteList(data.data);
+                // localStorage.setItem("myfavouriteList",JSON.stringify(favouriteList));
+                // setParsedData(JSON.parse(localStorage.getItem("myfavouriteList")));
+
                 //el.setIsFavourite(true);
         
                 //setFavouriteList(data.data);
                 //localStorage.setItem("myfavouriteList", JSON.stringify(favouriteList));
                 //el.setAttribute('fav', 'true');
 
-        //console.log(`favouriteList in adding: ${favouriteList}`);        
+        console.log(`favouriteList in adding: ${favouriteList}`);        
     }
 
     //remove product from wishlist
@@ -87,13 +109,17 @@ export function WishlistContextProvider(props){
          
             let{data} = await axios.delete(`${baseUrl}/api/v1/wishlist/${id}`,{headers:{token:localStorage.getItem("token")}});
             console.log(data);
+
+
+            //setFavouriteList(data.data);
+            // localStorage.setItem("myfavouriteList",JSON.stringify(favouriteList));
+            // setParsedData(JSON.parse(localStorage.getItem("myfavouriteList")));
                     
                 // el.classList.remove("fa-solid");
                 // el.classList.add("fa-regular");
                 // el.classList.remove("fa-beat");
-                // el.style.cssText = 'animation-iteration-count:0';
+                el.style.cssText = 'animation-iteration-count:0';
 
-            //setFavouriteList(data.data);
             //localStorage.setItem("myfavouriteList",JSON.stringify(favouriteList));
 
             
@@ -109,7 +135,7 @@ export function WishlistContextProvider(props){
     
     
 
-    return <WishlistContext.Provider value={{getUserWishlist,favouriteList, AddToWishlist,removeProductFromWishlist,isFavourite,setFavouriteList,parsedData}}>
+    return <WishlistContext.Provider value={{getUserWishlist,favouriteList, AddToWishlist,removeProductFromWishlist,isFavourite,setFavouriteList,parsedData,favouriteProductsList}}>
         {props.children}
         </WishlistContext.Provider>
 }

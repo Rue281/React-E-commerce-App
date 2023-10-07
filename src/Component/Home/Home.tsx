@@ -36,20 +36,20 @@ export default function Home() {
   },[favouriteList]);
 
   //handle fav button upon start or refresh
-  function handleFavs(productsList){
-    productsList.map(element =>{
-      favouriteList?.map((item)=>{
-        //console.log(item._id === product.id);
+  // function handleFavs(productsList){
+  //   productsList.map(element =>{
+  //     favouriteList?.map((item)=>{
+  //       //console.log(item._id === product.id);
       
-        if(item._id === element.id){
-          el.setAttribute('data-fav', 'true');
-        }
-        else if(item._id !== element.id){
-          el.setAttribute('data-fav', 'false');
-        }
-      });
-    })
-  }
+  //       if(item._id === element.id){
+  //         el.setAttribute('data-fav', 'true');
+  //       }
+  //       else if(item._id !== element.id){
+  //         el.setAttribute('data-fav', 'false');
+  //       }
+  //     });
+  //   })
+  // }
   
 const updateFavorite = (el,product) => {
   console.log(favouriteList);
@@ -59,10 +59,10 @@ const updateFavorite = (el,product) => {
 favouriteList?.map((item)=>{
   //console.log(item._id === product.id);
 
-  if(item._id === product.id){
+  if(item=== product.id){
     el.setAttribute('data-fav', 'true');
   }
-  else if(item._id !== product.id){
+  else if(item !== product.id){
     el.setAttribute('data-fav', 'false');
   }
 });
@@ -76,12 +76,13 @@ favouriteList?.map((item)=>{
   //   el.setAttribute('data-fav', 'false');
   // }
 
-  // if(el.getAttribute("fav")=== "true"){
-  //   removeProductFromWishlist(el,product._id);
-  // }
-  // else if(el.getAttribute("fav")=== "false"){
-  //   AddToWishlist(el,product._id);
-  // }
+  if(el.getAttribute("fav")=== "true"){
+    removeProductFromWishlist(el,product._id);
+  }
+  else if(el.getAttribute("fav")=== "false"){
+    AddToWishlist(el,product._id);
+  }
+  AddToWishlist(el,product._id);
 
 }
 
@@ -187,10 +188,10 @@ favouriteList?.map((item)=>{
                 {/* <Link to={"/wishlist/"+product._id}> */}
                 <button className='btn btn-transparent border-0 btn-favourite'>
 
-                  {/* {favouriteList.data?.includes(product)? 
-                  <i className="fa fa-xl fa-solid fa-heart" onClick={(e)=>{removeProductFromWishlist(e.target,product._id)}}></i>  :
-                  <i className=" fa fa-xl fa-regular fa-heart"  onClick={(e)=>{AddToWishlist(e.target,product._id)}}></i>
-                  } */}
+                  {favouriteList?.includes(product.id)? 
+                  <i className="fa-xl fa-solid fa-heart" onClick={(e)=>{removeProductFromWishlist(e.target,product._id)}}></i>  :
+                  <i className=" fa-xl fa-regular fa-heart"  onClick={(e)=>{AddToWishlist(e.target,product._id)}}></i>
+                  }
 
                   {/* {isFavourite ? <i className="fa fa-xl fa-solid fa-heart" onClick={(e)=>{removeProductFromWishlist(e.target,product._id)}}></i>  :
                   <i className=" fa fa-xl fa-regular fa-heart"  onClick={(e)=>{AddToWishlist(e.target,product._id)}}></i>} */}
@@ -214,7 +215,7 @@ favouriteList?.map((item)=>{
 
                      */}
 
-                      <i className=" fa fa-xl fa-regular fa-heart" data-fav="false" onClick={(e)=>{updateFavorite(e.target,product)}}></i>
+                      {/* <i className=" fa fa-xl fa-regular fa-heart" data-fav="false" onClick={(e)=>{updateFavorite(e.target,product)}}></i> */}
  
                 </button>
                 {/* </Link> */}

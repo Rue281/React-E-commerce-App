@@ -13,7 +13,7 @@ export function CartContextProvider(props){
         getAllCartData()
     },[]);
     useEffect(()=>{
-        setItemCount(itemCount)
+        //setItemCount(itemCount)
     },[itemCount]);
 
     async function getAllCartData(){
@@ -35,6 +35,7 @@ export function CartContextProvider(props){
         let headers = {token: localStorage.getItem("token")};
         let body = {count:count};
         let {data} = await axios.put(`${baseUrl}/api/v1/cart/${id}`,body,{headers});
+        console.log(data.data.products);
 
         setItemCount(count);
 

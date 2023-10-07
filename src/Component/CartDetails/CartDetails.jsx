@@ -46,10 +46,10 @@ export default function CartDetails() {
       <td>
       {/* updateQuantity(el.product._id,el.count-=1) */}
         <button className='btn btn-danger btn-sm rounded 
-        cursor'onClick={()=>{decreaseQuantity(el.product._id,itemCount)}}>-</button>
+        cursor'onClick={()=>{decreaseQuantity(el.product._id,el.count)}}>-</button>
         {/* {el.count} */}
         <span className='mx-4'>{el.count}</span>
-        <button className='btn btn-success btn-sm rounded cursor' onClick={()=>{increaseQuantity(el.product._id,itemCount)}}>+</button>
+        <button className='btn btn-success btn-sm rounded cursor' onClick={()=>{increaseQuantity(el.product._id,el.count)}}>+</button>
       </td>
       <td>{el.price}EGP</td>
       <td>

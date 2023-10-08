@@ -13,7 +13,7 @@ export function CartContextProvider(props){
         getAllCartData()
     },[]);
     useEffect(()=>{
-        //setItemCount(itemCount)
+        setItemCount(itemCount)
     },[itemCount]);
 
     async function getAllCartData(){
